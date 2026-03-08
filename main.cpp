@@ -31,6 +31,7 @@ private:
     friend Vector2D operator+(const Vector2D&, const Vector2D&);
     friend Vector2D operator-(const Vector2D&, const Vector2D&);
     friend double operator*(const Vector2D&, const Vector2D&);
+    friend Vector2D operator*(const Vector2D& v, double d);
     friend ostream& operator<<(ostream&, const Vector2D&);
     friend istream& operator>>(istream&, Vector2D&);
 };
@@ -64,6 +65,10 @@ double operator*(const Vector2D &v1, const Vector2D &v2) {
     return v1.x_ * v2.x_ + v1.y_ * v2.y_;
 }
 
+Vector2D operator*(const Vector2D& v, double d) {
+    return Vector2D{v.x_ * d, v.y_ * d};
+}
+
 int main()
 {
     Vector2D v1{1,2};
@@ -86,6 +91,10 @@ int main()
     cout << "About to execute Vector2D v6 = v5 * *pV * v4;..." << endl;
     double v5_dot_v4 = v5 * v4;
     cout << "v5 * v4 = " << v5_dot_v4 << endl;
+
+    cout<<"v1 * 10 = "<<v1*10<<endl;
+
+
 
     // Vector2D v7;
     // cout << "Specify v7 components:" << endl;
